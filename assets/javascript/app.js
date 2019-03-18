@@ -17,7 +17,7 @@ var delay = 2000;
 
 //question bank
 var questions = [
-    { q: 'what is the question', as: ['this?', 'trivia', 'question', 'other'], a: 0 },
+    { q: 'what is the question', as: ['this', 'trivia', 'question', 'other'], a: 0 },
     { q: 'where are we', as: ['here', 'nowhere', 'gone', 'nope'], a: 1 }
 ];
 
@@ -79,14 +79,14 @@ function loadResult() {
     $('#question').empty();
     $('#answers').empty();
 
-    //check if answer is correct
-    if (correct) {
-        $('#result').text('Correct!');
-    }
     //display message if time ran out
-    else if (timeLeft == 0) {
+    if (timeLeft == 0) {
         $('#result').text("Time's up!");
         $('#answer').text('The correct answer is ' + rightAnswer);
+    }
+    //check if answer is correct
+    else if (correct) {
+        $('#result').text('Correct!');
     }
     //display message if wrong answer is chosen
     else {

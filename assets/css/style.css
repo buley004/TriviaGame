@@ -1,0 +1,46 @@
+body {
+    background-image: url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    font-size: 20px;
+}
+
+#main {
+    max-width: 800px;
+    min-height: 500px;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #BEFFE6;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+div {
+    text-align: center;
+    margin: auto;
+}
+
+#timer {
+    margin-bottom: 20px;
+}
+
+#question {
+    margin-bottom: 20px;
+}
+
+#result {
+    margin-bottom: 20px;
+}
+
+#stats {
+    margin-top: -15px;
+    margin-bottom: 20px;
+}
+
+button {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
