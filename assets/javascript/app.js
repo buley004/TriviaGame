@@ -1,6 +1,7 @@
 // track right and wrong answers
 var right = 0;
 var wrong = 0;
+var noAns = 0;
 var qnum = 0;
 
 //store index of correct answer
@@ -12,7 +13,7 @@ var correct;
 var maxTime = 10;
 var timeLeft = maxTime;
 var timer;
-var delay;
+var delay = 2000;
 
 //question bank
 var questions = [
@@ -21,6 +22,7 @@ var questions = [
 ];
 
 function reset() {
+    //empty all page divs
     $('#question').empty();
     $('#answers').empty();
     $('#result').empty();
@@ -29,14 +31,19 @@ function reset() {
 };
 
 function loadTimer() {
+    //initialize timer to max time
     timeLeft = maxTime;
     $('#timer').text("You have " + timeLeft + " seconds remaining");
+    
+    //begin countdown
     timeLeft--;
     timer = setInterval(function() {
         $('#timer').text("You have " + timeLeft + " seconds remaining");
+        //end timer at 0 
         if (timeLeft == 0) {
             loadResult();
             clearInterval(timer);
+            noAns++;
         }
         timeLeft--;
     }, 1000)
@@ -68,7 +75,7 @@ function loadQuestion() {
 
 function loadResult() {
 
-    //clear 
+    //clear question
     $('#question').empty();
     $('#answers').empty();
 
@@ -87,10 +94,40 @@ function loadResult() {
         $('#answer').text('The correct answer is ' + rightAnswer);
     }
 
-    //move on to next question and load in 5 seconds
+    //move on to next question and load after delay
     qnum++;
-    setTimeout(loadQuestion, 5000);
+    
+    if (qnum < questions.length ) {
+        setTimeout(loadQuestion, delay);
+    }
+    else {
+        //load reset screen
+        console.log("all done");
+
+        setTimeout(endGame, delay);
+    }
 };
+
+function endGame() {
+    reset();
+    
+    //display stats
+    $('#question').text("All done, here are your stats:");
+    $('#stats').html("Wins: " + right + "<br>" + "Losses: " + wrong + "<br>" + "Unanswered: " + noAns); 
+
+    //prompt restart
+    $('#restart').text("Play again?");
+};
+
+function restart() {
+    //reset all stats and counters
+    right = 0;
+    wrong = 0;
+    noAns = 0;
+    qnum = 0;
+    reset();
+    $('#stats').empty();
+}
 
 
 //initialize game on start button click
@@ -111,13 +148,24 @@ $('#answers').on('click', function () {
     //record choice
     var chosen = $(event.target).attr('data-num');
 
-    //display correct if choice is right
+    //check if correct
     if (chosen == anum) {
         correct = true;
+        right++;
     }
     else {
         correct = false;
+        wrong++;
     }
 
+    //show result
     loadResult();
+});
+
+//restart game
+$('#restart').on('click', function() {
+    $(this).empty();
+    restart();
+    loadQuestion();
+
 });
