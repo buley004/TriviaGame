@@ -49,6 +49,14 @@ div {
     margin-bottom: 20px;
 }
 
+#answer {
+    margin-bottom: 20px;
+}
+
+#correct-img {
+    max-height: 250px;
+}
+
 #stats {
     margin-top: -35px;
     margin-bottom: 20px;

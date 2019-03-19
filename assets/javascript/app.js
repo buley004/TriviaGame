@@ -17,12 +17,12 @@ var delay = 2000;
 
 //question bank
 var questions = [
-    { q: 'Who sang the 2000 hit song "Who Let the Dogs Out?"', as: ['Lou Bega', 'Island Boyz', 'Baha Men', 'Lil Bow Wow'], a: 'Baha Men' },
-    { q: 'Which jazz musician recorded the 1973 album "Land of Make Believe"?', as: ['Miles Davis', 'Chuck Mangione', 'Herbie Hancock', 'Jaco Pastorius'], a: 'Chuck Mangione' },
-    { q: 'Who is the youngest person to ever win a Grammy Award?', as: ['Leah Peasall', 'LeAnn Rimes', 'Lorde', 'Janet Jackson'], a: 'Leah Peasall'},
-    { q: 'Which country music superstar sings the lyric: "red solo cup, Ill fill you up, lets have a party"?', as: ['Jason Aldean', 'Toby Keith', 'Brad Paisley', 'Travis Tritt'], a: 'Toby Keith'},
-    { q: 'Who of the following was never a member of The Beatles?', as: ['Stuart Sutcliffe', 'Pete Best', 'Chas Newby', 'Mark Burroughs'], a: 'Mark Burroughs'},
-    { q: 'Which French composer wrote the movement "Clair De Lune"?', as: ['Claude Debussy', 'Maurice Ravel', 'Georges Bizet', 'Jaques Offenbach'], a: 'Claude Debussy'}
+    { q: 'Who sang the 2000 hit song "Who Let the Dogs Out?"', as: ['Lou Bega', 'Island Boyz', 'Baha Men', 'Lil Bow Wow'], a: 'Baha Men', p: 'assets/images/bahamen.gif' },
+    { q: 'Which jazz musician recorded the 1973 album "Land of Make Believe"?', as: ['Miles Davis', 'Chuck Mangione', 'Herbie Hancock', 'Jaco Pastorius'], a: 'Chuck Mangione', p: 'assets/images/chuck.gif' },
+    { q: 'Who is the youngest person to ever win a Grammy Award?', as: ['Leah Peasall', 'LeAnn Rimes', 'Lorde', 'Janet Jackson'], a: 'Leah Peasall', p: 'assets/images/pea.jpg'},
+    { q: 'Which country music superstar sings the lyric: "red solo cup, Ill fill you up, lets have a party"?', as: ['Jason Aldean', 'Toby Keith', 'Brad Paisley', 'Travis Tritt'], a: 'Toby Keith', p: 'assets/images/toby.gif'},
+    { q: 'Who of the following was never a member of The Beatles?', as: ['Stuart Sutcliffe', 'Pete Best', 'Chas Newby', 'Mark Burroughs'], a: 'Mark Burroughs', p: 'assets/images/beatles.gif'},
+    { q: 'Which French composer wrote the movement "Clair De Lune"?', as: ['Claude Debussy', 'Maurice Ravel', 'Georges Bizet', 'Jaques Offenbach'], a: 'Claude Debussy', p: 'assets/images/debussy.jpg'}
 ];
 
 function reset() {
@@ -31,7 +31,7 @@ function reset() {
     $('#answers').empty();
     $('#result').empty();
     $('#answer').empty();
-    $('#correct-img').empty();
+    $('#correct-img').attr('src', '');
 };
 
 /**
@@ -108,6 +108,7 @@ function loadResult() {
     //clear question
     $('#question').empty();
     $('#answers').empty();
+    $('#correct-img').attr('src', questions[qnum].p);
 
     //display message if time ran out
     if (timeLeft == 0) {
