@@ -36,8 +36,8 @@ function loadTimer() {
     $('#timer').text("You have " + timeLeft + " seconds remaining");
     
     //begin countdown
-    timeLeft--;
     timer = setInterval(function() {
+        timeLeft--;
         $('#timer').text("You have " + timeLeft + " seconds remaining");
         //end timer at 0 
         if (timeLeft == 0) {
@@ -45,7 +45,6 @@ function loadTimer() {
             clearInterval(timer);
             noAns++;
         }
-        timeLeft--;
     }, 1000)
 }
 
@@ -175,5 +174,4 @@ $('#restart').on('click', function() {
     $(this).empty();
     restart();
     loadQuestion();
-
 });
