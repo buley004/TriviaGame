@@ -21,7 +21,8 @@ var questions = [
     { q: 'Which jazz musician recorded the 1973 album "Land of Make Believe"?', as: ['Miles Davis', 'Chuck Mangione', 'Herbie Hancock', 'Jaco Pastorius'], a: 1 },
     { q: 'Who is the youngest person to ever win a Grammy Award?', as: ['Leah Peasall', 'LeAnn Rimes', 'Lorde', 'Janet Jackson'], a: 0},
     { q: 'Which country music superstar sings the lyric: "red solo cup, Ill fill you up, lets have a party"?', as: ['Jason Aldean', 'Toby Keith', 'Brad Paisley', 'Travis Tritt'], a: 1},
-    { q: 'Who of the following was never a member of The Beatles?', as: ['Stuart Sutcliffe', 'Pete Best', 'Chas Newby', 'Mark Burroughs'], a: 3}
+    { q: 'Who of the following was never a member of The Beatles?', as: ['Stuart Sutcliffe', 'Pete Best', 'Chas Newby', 'Mark Burroughs'], a: 3},
+    { q: 'Which French composer wrote the movement "Clair De Lune"?', as: ['Claude Debussy', 'Maurice Ravel', 'Georges Bizet', 'Jaques Offenbach'], a: 0}
 ];
 
 function reset() {
@@ -32,6 +33,19 @@ function reset() {
     $('#answer').empty();
     $('#correct-img').empty();
 };
+
+/**
+ * Randomize array element order in-place.
+ * Using Durstenfeld shuffle algorithm.
+ */
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
 
 function loadTimer() {
     //initialize timer to max time
@@ -145,6 +159,9 @@ $('#start').on('click', function () {
     //hide start button
     $(this).hide();
 
+    //shuffle questions
+    shuffleArray(questions);
+
     //start the game
     loadQuestion();
 });
@@ -157,6 +174,8 @@ $('#answers').on('click', function () {
     
     //record choice
     var chosen = $(event.target).attr('data-num');
+    console.log(event.target);
+    console.log($(event.target).text());
 
     //check if correct
     if (chosen == anum) {
@@ -176,5 +195,6 @@ $('#answers').on('click', function () {
 $('#restart').on('click', function() {
     $(this).empty();
     restart();
+    shuffleArray(questions);
     loadQuestion();
 });
