@@ -18,7 +18,10 @@ var delay = 2000;
 //question bank
 var questions = [
     { q: 'Who sang the 2000 hit song "Who Let the Dogs Out?"', as: ['Lou Bega', 'Island Boyz', 'Baha Men', 'Lil Bow Wow'], a: 2 },
-    { q: 'where are we', as: ['here', 'nowhere', 'gone', 'nope'], a: 1 }
+    { q: 'Which jazz musician recorded the 1973 album "Land of Make Believe"?', as: ['Miles Davis', 'Chuck Mangione', 'Herbie Hancock', 'Jaco Pastorius'], a: 1 },
+    { q: 'Who is the youngest person to ever win a Grammy Award?', as: ['Leah Peasall', 'LeAnn Rimes', 'Lorde', 'Janet Jackson'], a: 0},
+    { q: 'Which country music superstar sings the lyric: "red solo cup, Ill fill you up, lets have a party"?', as: ['Jason Aldean', 'Toby Keith', 'Brad Paisley', 'Travis Tritt'], a: 1},
+    { q: 'Who of the following was never a member of The Beatles?', as: ['Stuart Sutcliffe', 'Pete Best', 'Chas Newby', 'Mark Burroughs'], a: 3}
 ];
 
 function reset() {

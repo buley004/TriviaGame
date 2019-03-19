@@ -9,7 +9,7 @@
 }
 
 body {
-    background-image: url('https://www.printawallpaper.com/upload/designs/music_background_d.jpg');
+    background-image: url('../images/background.jpg');
     background-size: cover;
     font-size: 20px;
     font-family: body-font;
@@ -28,6 +28,7 @@ h1 {
     text-align: center;
     padding-top: 10px;
     font-family: rocker; 
+    color: #002858;
 }
 
 div {
@@ -55,9 +56,8 @@ div {
 
 #restart{
     max-width: 300px;
-    background-color: green;
+    background-color: #002858;
     color: white;
-    /* border-radius: 5px; */
 }
 
 button {
@@ -71,11 +71,14 @@ button {
 
 .option {
     color: darkblue;
+    background-color: rgb(255,255,255,0.95);
     max-width: 300px;
+    opacity: 0.9;
+    margin-bottom: 5px;
 }
 
 .hover {
-    color: red;
+    color: white;
     background-color: black;
     border-style: solid;
     border-width: 2px;
