@@ -17,7 +17,7 @@ var delay = 2000;
 
 //question bank
 var questions = [
-    { q: 'what is the question', as: ['this', 'trivia', 'question', 'other'], a: 0 },
+    { q: 'Who sang the 2000 hit song "Who Let the Dogs Out?"', as: ['Lou Bega', 'Island Boyz', 'Baha Men', 'Lil Bow Wow'], a: 2 },
     { q: 'where are we', as: ['here', 'nowhere', 'gone', 'nope'], a: 1 }
 ];
 
@@ -65,6 +65,14 @@ function loadQuestion() {
         opt.attr('data-num', i);
         opt.attr('class', 'option');
         opt.text(questions[qnum].as[i]);
+        
+        //add css to options on hover state
+        opt.hover(function(){
+            $(this).addClass('hover');
+        }, function(){
+            $(this).removeClass('hover');
+        });
+        
         $('#answers').append(opt);
     }
 

@@ -1,5 +1,11 @@
+@font-face {
+    font-family: 'rocker';
+    src: url('../fonts/NewRocker-Regular.ttf');
+}
+
 body {
-    background-image: url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-image: url('https://www.printawallpaper.com/upload/designs/music_background_d.jpg');
+    background-size: cover;
     font-size: 20px;
 }
 
@@ -8,13 +14,14 @@ body {
     min-height: 500px;
     margin: auto;
     margin-top: 50px;
-    background-color: #BEFFE6;
+    background-color: rgb(255,255,255,0.8);
     border-radius: 10px;
 }
 
 h1 {
     text-align: center;
     padding-top: 10px;
+    font-family: rocker; 
 }
 
 div {
@@ -39,8 +46,27 @@ div {
     margin-bottom: 20px;
 }
 
+#restart{
+    max-width: 300px;
+    background-color: green;
+    color: white;
+}
+
 button {
     margin: auto;
     display: flex;
     justify-content: center;
+}
+
+.option {
+    color: green;
+    max-width: 300px;
+}
+
+.hover {
+    color: red;
+    background-color: black;
+    border-style: solid;
+    border-width: 2px;
+    border-color: pink;
 }
