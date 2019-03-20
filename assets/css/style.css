@@ -43,6 +43,7 @@ div {
 
 #question {
     margin-bottom: 20px;
+    padding: 0px 10px;
 }
 
 #result {
@@ -80,7 +81,7 @@ button {
 .option {
     color: darkblue;
     background-color: rgb(255,255,255,0.95);
-    max-width: 300px;
+    max-width: 340px;
     opacity: 0.9;
     margin-bottom: 5px;
 }
