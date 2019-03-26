@@ -183,8 +183,7 @@ $('#start').on('click', function () {
 });
 
 //check answer on click
-$('#answers').on('click', function () {
-
+$(document).on('click', '.option', function () {
     //stop timer
     clearInterval(timer);
 
