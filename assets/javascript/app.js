@@ -10,7 +10,9 @@ var rightAnswer;
 
 var correct;
 
-var maxTime = 10;
+
+//set timer and delay
+var maxTime = 15;
 var timeLeft = maxTime;
 var timer;
 var delay = 3500;
